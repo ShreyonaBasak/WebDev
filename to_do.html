@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+ 
+<style type="text/css">
+    .container{
+        max-width: 600px;
+        margin: auto;
+    }
+ 
+    #pending{
+        border-right: 1px solid #000;
+    }
+ 
+    #pending, #completed > h3{
+        text-align: center;
+    }
+ 
+    #pending_tasks, #completed_tasks{
+        text-align: left;
+        font-size: 20px;
+    }
+ 
+</style>
+ 
+<script type="text/javascript">
+    $(document).ready(function(){
+        var user_input, button;
+ 
+        $('#btn').click(function(){
+            user_input = $('#task_input').val()
+ 
+            function tasks(user_input){
+                return `<p>`+user_input+`<button class ="btn btn-danger btn-sm float-right done">DONE</button></p>`;
+            }
+ 
+            $('#pending_tasks').prepend(tasks(user_input))
+ 
+            $('#task_input').val('')
+ 
+        })
+ 
+        // Event Delegation
+ 
+        $('#pending_tasks').on('click', '.done', function () {
+            $(this).parent().hide()
+ 
+            var completed_tasks = $(this).parent().text().replace('DONE', '').trim()
+ 
+            $('#completed_tasks').append('<p>' + completed_tasks + '</p>')
+        })
+    })
+</script>
+ 
+<body>
+ 
+    <div class="navabar navbar bg-danger">
+        <h2 class="navbar-brand text-white">
+            To Do App
+        </h2>
+    </div>
+ 
+    <div class="container mt-5">
+        <h2>Add Task</h2>
+        <textarea class="form-control" id="task_input"></textarea>
+        <button class="btn btn-danger mt-3" id="btn">Add Task</button>
+ 
+        <div class="row mt-3">
+            <div class="col-md-6" id="pending">
+                <h3>Pending Task</h3>
+ 
+                <div id="pending_tasks"></div>
+            </div>
+ 
+            <div class="col-md-6" id="completed">
+                <h3>Completed Task</h3>
+ 
+                <div id="completed_tasks"></div>
+            </div>
+        </div>
+    </div>
+ 
+ 
+ 
+ 
+</body>
+</html>

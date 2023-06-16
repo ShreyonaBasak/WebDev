@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Counter</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+</head>
+ 
+<style type="text/css">
+    body{
+        background-color: rgb(228, 230, 131);
+    }
+ 
+    div{
+        max-width: 300px;
+        margin: auto;
+        margin-top: 200px;
+    }
+ 
+    p{
+        text-align: center;
+        color: rgb(22, 108, 229);
+        font-size: 100px;
+    }
+ 
+    button{
+        background-color: rgb(210, 57, 57);
+        color: white;
+        border: none;
+        width: 140px;
+        height: 30px;
+        cursor: pointer;
+    }
+ 
+</style>
+ 
+<script type="text/javascript">
+    $(document).ready(function(){
+        var number;
+ 
+        // $('#add').click(function(){
+        //     number = Number($('#number').text())
+        //     number = number + 1
+        //     $('#number').text(number)
+        // })
+ 
+        // $('#sub').click(function () {
+        //     number = Number($('#number').text())
+        //     number = number - 1
+        //     $('#number').text(number)
+        // })
+ 
+ 
+        $('.btn').click(function(){
+ 
+            number = Number($('#number').text())
+ 
+            if($(this).text() === 'Add'){
+                number = number + 1
+            }else{
+                number = number - 1
+            }
+ 
+            $('#number').text(number)
+        })
+ 
+ 
+    })
+</script>
+ 
+<body>
+ 
+    <div>
+        <p id="number">0</p>
+        <button class="btn">Add</button>
+        <button class="btn">Sub</button>
+    </div>
+ 
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Coupon</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+</head>
+ 
+<script type="text/javascript">
+    $(document).ready(function(){
+ 
+        var correct_coupon = 'save10'
+        var user_input, actual_price, discounted_price, new_price;
+ 
+        var flag = 0
+ 
+        $('#btn').click(function(){
+            user_input = $('#coupon').val()
+ 
+            if(user_input === correct_coupon){
+                flag = 0
+            }
+ 
+            if(user_input === correct_coupon && flag === 0){
+ 
+                actual_price = $('#price').text()
+                discounted_price = 0.1 * actual_price
+ 
+                new_price = actual_price - discounted_price
+ 
+                // $('#price').text(new_price)
+ 
+                $('#price').html('<strike>' + actual_price + '</strike>   ₹' + new_price)
+ 
+                flag = 1
+ 
+                $('#message').html('<p style="color:green">Coupon Applied Successfully</p>')
+            }else{
+ 
+                $('#price').html(actual_price)
+ 
+                flag = 0
+ 
+                $('#message').html('<p style="color:red">Coupon Expired</p>')
+            }
+ 
+        })
+    })
+</script>
+ 
+<body>
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-deeppurple?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1663703841896" alt="" height="500" width="700">
+ 
+    <h2>Iphone 14 Pro Max</h2>
+    <h4>Price - ₹<span id="price">139900</span></h4>
+ 
+    <label>Apply Coupon</label>
+    <div id="message"></div>
+    <input type="text" id="coupon">
+    <button id="btn">Apply</button>
+</body>
+</html>
