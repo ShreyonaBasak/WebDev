@@ -1,5 +1,6 @@
 # WebDev
-Button Counter : https://shreyonabasak.github.io/WebDev/buttonCounter.html \n
+Button Counter : https://shreyonabasak.github.io/WebDev/buttonCounter.html
+<br>
 Calculator : https://shreyonabasak.github.io/WebDev/calculator.html
 Carousel : https://shreyonabasak.github.io/WebDev/carousel.html
 Color Picker : https://shreyonabasak.github.io/WebDev/colorPicker.html
